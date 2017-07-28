@@ -1,5 +1,9 @@
 {% extends 'layouts/default.html.twig' %}
 
+{% block title %}
+    {{ status_code }} {{ status_text }}
+{% endblock %}
+
 {% block body %}
     <div class="container">
         <h1 class="text-danger">Oops! An Error Occurred</h1>
