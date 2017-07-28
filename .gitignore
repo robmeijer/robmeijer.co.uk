@@ -1,23 +1,6 @@
-# Cache, session files and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-/var/sessions/*
-
-# Parameters
-/.env
-
-# Managed by Composer
-/var/bootstrap.php.cache
-/bin/*
-!bin/console
-!bin/symfony_requirements
-
-# Assets and user uploads
+###> symfony/framework-bundle ###
+.env
 /public/bundles/
-/public/uploads/
-
-# PHPUnit
-/phpunit.xml
-
-# Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
+/var/
+/vendor/
+###< symfony/framework-bundle ###
