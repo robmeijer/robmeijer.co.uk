@@ -2,3 +2,16 @@ home:
     path:     /
     methods:  [GET]
     defaults: { _controller: 'App\Controller\HomeController::indexAction' }
+
+security_login:
+    path:     /login
+    methods:  [GET, POST]
+    defaults: { _controller: 'App\Controller\SecurityController::loginAction' }
+
+security_register:
+    path:     /register
+    methods:  [GET]
+    defaults: { _controller: 'App\Controller\SecurityController::registerAction' }
+
+security_logout:
+    path:    /logout

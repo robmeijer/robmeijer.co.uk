@@ -5,5 +5,12 @@
 {% block body %}
     <div class="container">
         <h1>robmeijer.co.uk</h1>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <p>Logged in as {{ app.user.username }}. <a href="{{ logout_url() }}">Log out</a>.</p>
+        {% else %}
+            <p>
+                <a href="{{ url('security_login') }}">Log in</a> | <a href="{{ url('security_register') }}">Register</a>
+            </p>
+        {% endif %}
     </div>
 {% endblock %}
