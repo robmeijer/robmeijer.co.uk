@@ -9,7 +9,7 @@
             <p>Logged in as {{ app.user.fullName }}. <a href="{{ logout_url() }}">Log out</a>.</p>
         {% else %}
             <p>
-                <a href="{{ url('security_login') }}">Log in</a> | <a href="{{ url('security_register') }}">Register</a>
+                <a href="{{ url('security_login') }}">Log in</a> | <a href="{{ url('registration_register') }}">Register</a>
             </p>
         {% endif %}
     </div>

@@ -14,9 +14,4 @@ class SecurityController extends AbstractController
             'error' => $authUtils->getLastAuthenticationError(),
         ]);
     }
-
-    public function registerAction()
-    {
-        return $this->render('security/register.html.twig');
-    }
 }
