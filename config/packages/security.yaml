@@ -1,16 +1,9 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        App\Entity\User: bcrypt
     providers:
-        in_memory:
-            memory:
-                users:
-                    admin:
-                        password: admin
-                        roles: 'ROLE_ADMIN'
-                    user:
-                        password: user
-                        roles: 'ROLE_USER'
+        database:
+            entity: { class: App:User, property: username }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
