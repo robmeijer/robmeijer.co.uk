@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistrationController extends AbstractController
@@ -24,7 +25,9 @@ class RegistrationController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('security_login');
+            $this->authenticateUser($user);
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render(
@@ -32,4 +35,11 @@ class RegistrationController extends AbstractController
             ['form' => $form->createView()]
         );
     }
+
+	private function authenticateUser(User $user)
+	{
+		$token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
+
+		$this->container->get('security.token_storage')->setToken($token);
+	}
 }
