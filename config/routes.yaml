@@ -15,3 +15,7 @@ security_login:
 
 security_logout:
     path:    /logout
+
+admin:
+    resource: 'routes/admin.yaml'
+    prefix: /admin

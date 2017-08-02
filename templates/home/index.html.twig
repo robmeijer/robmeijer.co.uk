@@ -7,6 +7,9 @@
         <h1>robmeijer.co.uk</h1>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <p>Logged in as {{ app.user.fullName }}. <a href="{{ logout_url() }}">Log out</a>.</p>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ url('admin_dashboard_index') }}">Dashboard</a>
+            {% endif %}
         {% else %}
             <p>
                 <a href="{{ url('security_login') }}">Log in</a> | <a href="{{ url('registration_register') }}">Register</a>

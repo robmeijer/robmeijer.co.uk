@@ -18,3 +18,5 @@ security:
                 target: home
             remember_me:
                 secret: '%env(APP_SECRET)%'
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }

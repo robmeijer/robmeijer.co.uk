@@ -1,0 +1,4 @@
+admin_dashboard_index:
+    path:     /dashboard
+    methods:  [GET]
+    defaults: { _controller: 'App\Controller\Admin\DashboardController::indexAction' }
