@@ -52,8 +52,8 @@ class User implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @Assert\NotBlank(groups={"registration"})
-     * @Assert\Length(min=8, max=4096, groups={"registration"})
+     * @Assert\NotBlank(groups={"registration", "change_password"})
+     * @Assert\Length(min=8, max=4096, groups={"registration", "change_password"})
      */
     private $plainPassword;
 
@@ -232,7 +232,9 @@ class User implements UserInterface, \Serializable
         ]);
     }
 
-    /** @see \Serializable::unserialize() */
+    /** @see \Serializable::unserialize()
+     * @param string $serialized
+     */
     public function unserialize($serialized)
     {
         list ($this->id, $this->username, $this->password) = unserialize($serialized);

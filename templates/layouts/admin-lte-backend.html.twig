@@ -42,14 +42,7 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar Menu -->
-                <ul class="sidebar-menu">
-                    <li class="header">NAVIGATION</li>
-                    <li class="active"><a href="{{ url('admin_dashboard_index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                    <li class="header">USER</li>
-                    <li><a href="{{ url('admin_user_edit', {id: app.user.id}) }}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
-                    <li><a href="{{ url('admin_user_change_password', {id: app.user.id}) }}"><i class="fa fa-user"></i> <span>Change password</span></a></li>
-                    <li><a href="{{ logout_url() }}"><i class="fa fa-sign-out"></i> <span>Log out</span></a></li>
-                </ul>
+                {% include 'admin/partials/sidebar-menu.html.twig' %}
                 <!-- /.sidebar-menu -->
             </section>
             <!-- /.sidebar -->

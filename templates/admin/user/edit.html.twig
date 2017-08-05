@@ -12,24 +12,24 @@
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 
 {% block content %}
-    <div class="box">
-        {{ form_start(form) }}
-        <div class="box-header with-border">
-            <h3 class="box-title">Edit</h3>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="box">
+                {{ form_start(form) }}
+                <div class="box-body">
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.surname) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.username) }}
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    {{ form_row(form.submit, {'label': 'Save profile'}) }}
+                </div>
+                {{ form_end(form) }}
+                <!-- /.box-footer-->
+            </div>
+            <!-- /.box -->
         </div>
-        <div class="box-body">
-            {{ form_row(form.firstName) }}
-            {{ form_row(form.surname) }}
-            {{ form_row(form.email) }}
-            {{ form_row(form.username) }}
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-
-        </div>
-        {{ form_row(form.save, {'label': 'Save profile', 'attr': {'class': 'btn-primary btn-flat'}}) }}
-        {{ form_end(form) }}
-        <!-- /.box-footer-->
     </div>
-    <!-- /.box -->
 {% endblock %}

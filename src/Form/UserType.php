@@ -22,7 +22,7 @@ class UserType extends AbstractType
             ->add('email', EmailType::class)
             ->add('username', TextType::class)
         ;
-        if (in_array('registration', $options['validation_groups'])) {
+        if (in_array(['registration', 'change_password'], $options['validation_groups'])) {
             $builder
                 ->add('plainPassword', RepeatedType::class, [
                     'type' => PasswordType::class,
@@ -31,7 +31,7 @@ class UserType extends AbstractType
                 ])
             ;
         }
-        $builder->add('save', SubmitType::class);
+        $builder->add('submit', SubmitType::class, ['attr' => ['class' => 'btn-primary btn-flat']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -24,7 +24,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_user_edit', ['id' => $user->getId()]);
+            return $this->redirectToRoute('admin_dashboard_index');
         }
 
         return $this->render('admin/user/edit.html.twig', [
@@ -49,7 +49,7 @@ class UserController extends AbstractController
             $user->setPassword($password);
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_user_edit', ['id' => $user->getId()]);
+            return $this->redirectToRoute('admin_dashboard_index');
         }
 
         return $this->render('admin/user/change-password.html.twig', [

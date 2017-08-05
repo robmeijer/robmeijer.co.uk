@@ -31,14 +31,14 @@ class ChangePasswordType extends AbstractType
             ])
         ;
 
-        $builder->add('update', SubmitType::class);
+        $builder->add('submit', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'validation_groups' => ['registration'],
+            'validation_groups' => ['change_password'],
         ]);
     }
 }
