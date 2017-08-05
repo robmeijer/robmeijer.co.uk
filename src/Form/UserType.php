@@ -17,23 +17,28 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'First Name']])
-            ->add('surname', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Surname']])
-            ->add('email', EmailType::class, ['label' => false, 'attr' => ['placeholder' => 'Email']])
-            ->add('username', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Username']])
-            ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options'  => ['label' => false, 'attr' => ['placeholder' => 'Password']],
-                'second_options' => ['label' => false, 'attr' => ['placeholder' => 'Repeat Password']],
-            ])
-	        ->add('save', SubmitType::class, ['label' => 'Register', 'attr' => ['class' => 'btn-primary btn-block btn-flat']]);
+            ->add('firstName', TextType::class)
+            ->add('surname', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('username', TextType::class)
         ;
+        if (in_array('registration', $options['validation_groups'])) {
+            $builder
+                ->add('plainPassword', RepeatedType::class, [
+                    'type' => PasswordType::class,
+                    'first_options' => [],
+                    'second_options' => [],
+                ])
+            ;
+        }
+        $builder->add('save', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'validation_groups' => ['Default'],
         ]);
     }
 }

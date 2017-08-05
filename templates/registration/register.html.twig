@@ -13,7 +13,13 @@
 
     <div class="register-box-body">
         {{ form_start(form) }}
-            {{ form_row(form, {'label': false}) }}
+            {{ form_row(form.firstName, {'label': false, 'attr': {'placeholder': 'First Name'}}) }}
+            {{ form_row(form.surname, {'label': false, 'attr': {'placeholder': 'Surname'}}) }}
+            {{ form_row(form.email, {'label': false, 'attr': {'placeholder': 'Email Address'}}) }}
+            {{ form_row(form.username, {'label': false, 'attr': {'placeholder': 'Username'}}) }}
+            {{ form_row(form.plainPassword.first, {'label': false, 'attr': {'placeholder': 'Password'}}) }}
+            {{ form_row(form.plainPassword.second, {'label': false, 'attr': {'placeholder': 'Repeat Password'}}) }}
+            {{ form_row(form.save, {'label': 'Register', 'attr': {'class': 'btn-primary btn-block btn-flat'}}) }}
         {{ form_end(form) }}
         <a href="{{ url('security_login') }}" class="text-center">I already have an account</a>
     </div>

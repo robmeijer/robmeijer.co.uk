@@ -6,15 +6,19 @@ use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistrationController extends AbstractController
 {
-    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
-    {
+    public function registerAction(
+        Request $request,
+        UserPasswordEncoderInterface $passwordEncoder,
+        TokenStorageInterface $tokenStorage
+    ) {
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, ['validation_groups' => ['registration']]);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -25,7 +29,7 @@ class RegistrationController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            $this->authenticateUser($user);
+            $this->authenticateUser($user, $tokenStorage);
 
             return $this->redirectToRoute('home');
         }
@@ -36,10 +40,10 @@ class RegistrationController extends AbstractController
         );
     }
 
-	private function authenticateUser(User $user)
+	private function authenticateUser(User $user, TokenStorageInterface $tokenStorage)
 	{
 		$token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
 
-		$this->container->get('security.token_storage')->setToken($token);
+		$tokenStorage->setToken($token);
 	}
 }
