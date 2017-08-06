@@ -1,7 +1,9 @@
 {% extends 'layouts/admin-lte-backend.html.twig' %}
 
+{% block title 'Admin - User' %}
+
 {% block content_header %}
-    <h1>Edit profile<small>Edit the selected user profile</small></h1>
+    <h1>Profile<small>Edit the selected user profile</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('admin_dashboard_index') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#"><i class="fa fa-user"></i> User</a></li>
@@ -14,7 +16,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="box">
+            <div class="box box-primary">
                 {{ form_start(form) }}
                 <div class="box-body">
                     {{ form_row(form.firstName) }}
@@ -24,7 +26,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    {{ form_row(form.submit, {'label': 'Save profile'}) }}
+                    {{ form_row(form.submit, {'label': 'Update Profile'}) }}
                 </div>
                 {{ form_end(form) }}
                 <!-- /.box-footer-->

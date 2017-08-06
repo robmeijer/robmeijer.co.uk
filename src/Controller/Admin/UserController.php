@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\ChangePasswordType;
 use App\Form\UserType;
+use App\Security\UserVoter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -18,6 +19,8 @@ class UserController extends AbstractController
      */
     public function editAction(Request $request, User $user)
     {
+        $this->denyAccessUnlessGranted(UserVoter::EDIT, $user);
+
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
@@ -41,6 +44,8 @@ class UserController extends AbstractController
      */
     public function changePasswordAction(Request $request, User $user, UserPasswordEncoderInterface $passwordEncoder)
     {
+        $this->denyAccessUnlessGranted(UserVoter::EDIT, $user);
+
         $form = $this->createForm(ChangePasswordType::class, $user);
         $form->handleRequest($request);
 
