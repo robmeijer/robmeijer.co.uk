@@ -31,7 +31,7 @@ class ChangePasswordType extends AbstractType
             ])
         ;
 
-        $builder->add('submit', SubmitType::class);
+        $builder->add('submit', SubmitType::class, ['label' => 'Change Password']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
