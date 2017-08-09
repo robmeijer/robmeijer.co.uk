@@ -17,6 +17,10 @@ class RegistrationController extends AbstractController
         UserPasswordEncoderInterface $passwordEncoder,
         TokenStorageInterface $tokenStorage
     ) {
+        if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirectToRoute('admin_dashboard_index');
+        }
+
         $user = new User();
         $form = $this->createForm(UserType::class, $user, ['validation_groups' => ['registration']]);
 
