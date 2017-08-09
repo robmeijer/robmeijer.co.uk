@@ -20,6 +20,7 @@ class ChangePasswordType extends AbstractType
                 'constraints' => [
                     new UserPassword()
                 ],
+                'validation_groups' => ['Default'],
                 'mapped' => false,
                 'required' => true,
                 'label' => 'Current password'
