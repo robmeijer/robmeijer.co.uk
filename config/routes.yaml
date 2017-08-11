@@ -19,3 +19,9 @@ security_logout:
 admin:
     resource: 'routes/admin.yaml'
     prefix: /admin
+
+admin_dashboard:
+    path: /admin
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: admin_dashboard_index
