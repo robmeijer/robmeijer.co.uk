@@ -17,6 +17,7 @@ class User implements UserInterface, \Serializable
 {
     const ROLE_USER = 'ROLE_USER';
     const ROLE_ADMIN = 'ROLE_ADMIN';
+    const LIMIT = 3;
 
     /**
      * @var int

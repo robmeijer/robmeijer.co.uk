@@ -3,6 +3,16 @@ admin_dashboard_index:
     methods:  [GET]
     defaults: { _controller: 'App\Controller\Admin\DashboardController::indexAction' }
 
+admin_user_index:
+    path: /users/{pagination}/{page}
+    methods:  [GET]
+    defaults:
+        _controller: 'App\Controller\Admin\UserController:indexAction'
+        pagination: 'page'
+        page: 1
+    requirements:
+        page: '\d+'
+
 admin_user_edit:
     path:     /user/{id}/edit
     methods:  [GET, POST]

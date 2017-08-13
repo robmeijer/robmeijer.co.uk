@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Form\ChangePasswordType;
 use App\Form\UserType;
+use App\Pagination\Pager;
+use App\Repository\UserRepository;
 use App\Security\UserVoter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +14,20 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
+    /**
+     * @param int $page
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexAction($page)
+    {
+        /** @var UserRepository $UserRepository */
+        $UserRepository = $this->getDoctrine()->getRepository(User::class);
+
+        $users = $UserRepository->findAllPaginated($page);
+
+        return $this->render('admin/user/index.html.twig', compact('users'));
+    }
+
     /**
      * @param Request $request
      * @param User $user

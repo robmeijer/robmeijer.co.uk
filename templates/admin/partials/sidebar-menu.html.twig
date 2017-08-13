@@ -2,6 +2,8 @@
 <ul class="sidebar-menu">
     <li class="header">NAVIGATION</li>
     <li class="{{ route == 'admin_dashboard_index' ? 'active' }}"><a href="{{ url('admin_dashboard_index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+    <li class="header">USERS</li>
+    <li class="{{ route == 'admin_user_index' ? 'active' }}"><a href="{{ url('admin_user_index') }}"><i class="fa fa-user"></i> <span>All Users</span></a></li>
     <li class="header">USER</li>
     <li class="{{ route == 'admin_user_edit' ? 'active' }}"><a href="{{ url('admin_user_edit', {id: app.user.id}) }}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
     <li class="{{ route == 'admin_user_change_password' ? 'active' }}"><a href="{{ url('admin_user_change_password', {id: app.user.id}) }}"><i class="fa fa-key"></i> <span>Change password</span></a></li>
