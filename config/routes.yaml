@@ -18,10 +18,15 @@ security_logout:
 
 admin:
     resource: 'routes/admin.yaml'
-    prefix: /admin
+    prefix:   /admin
 
 admin_dashboard:
-    path: /admin
+    path:     /admin
     defaults:
         _controller: FrameworkBundle:Redirect:redirect
         route: admin_dashboard_index
+
+page_show:
+    path:     /{slug}
+    methods:  [GET]
+    defaults: { _controller: 'App\Controller\PageController::showAction' }

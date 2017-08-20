@@ -22,3 +22,23 @@ admin_user_change_password:
     path:     /user/{id}/change-password
     methods:  [GET, POST]
     defaults: { _controller: 'App\Controller\Admin\UserController:changePasswordAction' }
+
+admin_page_index:
+    path: /pages/{pagination}/{page}
+    methods:  [GET]
+    defaults:
+        _controller: 'App\Controller\Admin\PageController:indexAction'
+        pagination: 'page'
+        page: 1
+    requirements:
+        page: '\d+'
+
+admin_page_new:
+    path:     /page/new
+    methods:  [GET, POST]
+    defaults: { _controller: 'App\Controller\Admin\PageController:newAction' }
+
+admin_page_edit:
+    path:     /page/{id}/edit
+    methods:  [GET, POST]
+    defaults: { _controller: 'App\Controller\Admin\PageController:editAction' }

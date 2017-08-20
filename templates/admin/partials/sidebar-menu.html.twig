@@ -2,6 +2,9 @@
 <ul class="sidebar-menu">
     <li class="header">NAVIGATION</li>
     <li class="{{ route == 'admin_dashboard_index' ? 'active' }}"><a href="{{ url('admin_dashboard_index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+    <li class="header">PAGES</li>
+    <li class="{{ route == 'admin_page_index' ? 'active' }}"><a href="{{ url('admin_page_index') }}"><i class="fa fa-files-o"></i> <span>All Pages</span></a></li>
+    <li class="{{ route == 'admin_page_new' ? 'active' }}"><a href="{{ url('admin_page_new') }}"><i class="fa fa-plus-square"></i> <span>Add New</span></a></li>
     <li class="header">USERS</li>
     <li class="{{ route == 'admin_user_index' ? 'active' }}"><a href="{{ url('admin_user_index') }}"><i class="fa fa-user"></i> <span>All Users</span></a></li>
     <li class="header">USER</li>

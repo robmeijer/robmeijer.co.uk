@@ -20,10 +20,10 @@ class UserController extends AbstractController
      */
     public function indexAction($page)
     {
-        /** @var UserRepository $UserRepository */
-        $UserRepository = $this->getDoctrine()->getRepository(User::class);
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
 
-        $users = $UserRepository->findAllPaginated($page);
+        $users = $userRepository->findAllPaginated($page);
 
         return $this->render('admin/user/index.html.twig', compact('users'));
     }

@@ -28,7 +28,7 @@ class Pager extends Paginator
 
         $this->pager = new PagerData($this->count(), $limit, $page);
 
-        if ($page > $this->pager->getMaxPages()) {
+        if ($page > $this->pager->getMaxPages() && $this->pager->getMaxPages() !== 0) {
             throw new NotFoundHttpException("Page '{$page}' not found. There are only '{$this->pager->getMaxPages()}' pages.");
         }
     }
