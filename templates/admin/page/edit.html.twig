@@ -6,12 +6,12 @@
     <h1>Page<small>Edit the selected page</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ url('admin_dashboard_index') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fa fa-user"></i> User</a></li>
-        <li class="active"><i class="fa fa-edit"></i> Profile</li>
+        <li><a href="{{ url('admin_page_index') }}"><i class="fa fa-files-o"></i> Pages</a></li>
+        <li class="active"><i class="fa fa-edit"></i> Edit</li>
     </ol>
 {% endblock %}
 
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 
 {% block content %}
     <div class="row">
