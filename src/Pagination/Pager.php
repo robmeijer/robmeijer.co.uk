@@ -28,8 +28,13 @@ class Pager extends Paginator
 
         $this->pager = new PagerData($this->count(), $limit, $page);
 
-        if ($page > $this->pager->getMaxPages() && $this->pager->getMaxPages() !== 0) {
+        if ($this->outOfBounds($page)) {
             throw new NotFoundHttpException("Page '{$page}' not found. There are only '{$this->pager->getMaxPages()}' pages.");
         }
+    }
+
+    private function outOfBounds(int $page): bool
+    {
+        return $page > $this->pager->getMaxPages() && $this->pager->getMaxPages() !== 0;
     }
 }
