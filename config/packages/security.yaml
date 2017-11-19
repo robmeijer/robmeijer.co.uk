@@ -9,7 +9,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: null
+            anonymous: ~
             form_login:
                 login_path: security_login
                 check_path: security_login

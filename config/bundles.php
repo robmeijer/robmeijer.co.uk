@@ -1,14 +1,13 @@
 <?php
 
 return [
-    'Symfony\Bundle\FrameworkBundle\FrameworkBundle' => ['all' => true],
-    'Symfony\Bundle\TwigBundle\TwigBundle' => ['all' => true],
-    'Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle' => ['all' => true],
-    'Doctrine\Bundle\DoctrineBundle\DoctrineBundle' => ['all' => true],
-    'Symfony\Bundle\DebugBundle\DebugBundle' => ['dev' => true, 'test' => true],
-    'Symfony\Bundle\MonologBundle\MonologBundle' => ['all' => true],
-    'Symfony\Bundle\SecurityBundle\SecurityBundle' => ['all' => true],
-    'Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle' => ['all' => true],
-    'Symfony\Bundle\WebProfilerBundle\WebProfilerBundle' => ['dev' => true, 'test' => true],
-    'Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle' => ['all' => true],
+    Doctrine\Bundle\DoctrineBundle\DoctrineBundle::class => ['all' => true],
+    Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle::class => ['all' => true],
+    Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle::class => ['all' => true],
+    Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
+    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
+    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
+    Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
+    Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
+    Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
 ];
