@@ -1,28 +1,16 @@
 {
-    "name": "robm/robmeijer.co.uk",
     "type": "project",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "php": "^7.1.3",
-        "sensio/framework-extra-bundle": "^3.0",
-        "symfony/asset": "^3.3",
-        "symfony/expression-language": "^3.3",
+        "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
-        "symfony/form": "^3.3",
-        "symfony/framework-bundle": "^3.3",
-        "symfony/monolog-bundle": "^3.1",
-        "symfony/orm-pack": "^1.0",
-        "symfony/security-bundle": "^3.3",
-        "symfony/swiftmailer-bundle": "^3.0",
-        "symfony/templating": "^3.3",
-        "symfony/twig-bundle": "^3.3",
-        "symfony/validator": "^3.3",
-        "symfony/yaml": "^3.3"
+        "symfony/framework-bundle": "^4.0",
+        "symfony/lts": "^4@dev",
+        "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "symfony/debug-bundle": "^3.3",
-        "symfony/dotenv": "^3.3",
-        "symfony/profiler-pack": "^1.0"
+        "symfony/dotenv": "^4.0"
     },
     "config": {
         "preferred-install": {
@@ -42,7 +30,7 @@
     },
     "scripts": {
         "auto-scripts": {
-            "make cache-warmup": "script",
+            "cache:clear": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
@@ -53,13 +41,11 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "symfony/twig-bundle": "<3.3",
-        "symfony/debug": "<3.3"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {
-            "id": "01BP4BF07KNNT42E6C2CFMD690",
+            "id": "01C16CT210X9X65RVV0S58GRE9",
             "allow-contrib": false
         }
     }

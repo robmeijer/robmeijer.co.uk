@@ -1,32 +1,3 @@
-home:
-    path:     /
-    methods:  [GET]
-    defaults: { _controller: 'App\Controller\HomeController::indexAction' }
-
-registration_register:
-    path:     /register
-    methods:  [GET, POST]
-    defaults: { _controller: 'App\Controller\RegistrationController::registerAction' }
-
-security_login:
-    path:     /login
-    methods:  [GET, POST]
-    defaults: { _controller: 'App\Controller\SecurityController::loginAction' }
-
-security_logout:
-    path:    /logout
-
-admin:
-    resource: 'routes/admin.yaml'
-    prefix:   /admin
-
-admin_dashboard:
-    path:     /admin
-    defaults:
-        _controller: FrameworkBundle:Redirect:redirect
-        route: admin_dashboard_index
-
-page_show:
-    path:     /{slug}
-    methods:  [GET]
-    defaults: { _controller: 'App\Controller\PageController::showAction' }
+#index:
+#    path: /
+#    defaults: { _controller: 'App\Controller\DefaultController::index' }
