@@ -42,3 +42,8 @@ admin_page_edit:
     path:     /page/{id}/edit
     methods:  [GET, POST]
     defaults: { _controller: 'App\Controller\Admin\PageController:editAction' }
+
+admin_settings_general:
+    path:     /settings/general
+    methods:  [GET, POST]
+    defaults: { _controller: 'App\Controller\Admin\SettingsController:generalAction' }

@@ -20,4 +20,9 @@ class PageRepository extends EntityRepository
     {
         return $this->paginate($this->createQueryBuilder('p')->getQuery(), $page, $limit);
     }
+
+    public function findHome()
+    {
+        return $this->findOneBy(['home' => true]);
+    }
 }

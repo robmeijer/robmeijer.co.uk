@@ -56,6 +56,13 @@ class Page
     private $content;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $home;
+
+    /**
      * @return int
      */
     public function getId()
@@ -125,5 +132,21 @@ class Page
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getHome()
+    {
+        return $this->home;
+    }
+
+    /**
+     * @param bool $home
+     */
+    public function setHome($home)
+    {
+        $this->home = $home;
     }
 }
