@@ -1,14 +1,18 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 class ComingSoonController extends AbstractController
 {
-    public function indexAction(): Response
+    /**
+     * @Route("/", name="coming_soon")
+     */
+    public function index(): Response
     {
-        return $this->render('coming-soon/index.html.twig');
+        return $this->render('coming_soon/index.html.twig');
     }
 }

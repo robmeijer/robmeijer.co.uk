@@ -1,28 +1,39 @@
 {
-    "name": "robm/robmeijer.co.uk",
     "type": "project",
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
-        "php": "^7.1.3",
-        "sensio/framework-extra-bundle": "^3.0",
-        "symfony/asset": "^3.3",
-        "symfony/expression-language": "^3.3",
-        "symfony/flex": "^1.0",
-        "symfony/form": "^3.3",
-        "symfony/framework-bundle": "^3.3",
+        "php": "^7.2.5",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "sensio/framework-extra-bundle": "^5.1",
+        "symfony/asset": "5.0.*",
+        "symfony/console": "5.0.*",
+        "symfony/dotenv": "5.0.*",
+        "symfony/expression-language": "5.0.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/form": "5.0.*",
+        "symfony/framework-bundle": "5.0.*",
+        "symfony/http-client": "5.0.*",
+        "symfony/intl": "5.0.*",
+        "symfony/mailer": "5.0.*",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/orm-pack": "^1.0",
-        "symfony/security-bundle": "^3.3",
-        "symfony/swiftmailer-bundle": "^3.0",
-        "symfony/templating": "^3.3",
-        "symfony/twig-bundle": "^3.3",
-        "symfony/validator": "^3.3",
-        "symfony/yaml": "^3.3"
+        "symfony/notifier": "5.0.*",
+        "symfony/orm-pack": "*",
+        "symfony/process": "5.0.*",
+        "symfony/security-bundle": "5.0.*",
+        "symfony/serializer-pack": "*",
+        "symfony/string": "5.0.*",
+        "symfony/translation": "5.0.*",
+        "symfony/twig-pack": "*",
+        "symfony/validator": "5.0.*",
+        "symfony/web-link": "5.0.*",
+        "symfony/yaml": "5.0.*"
     },
     "require-dev": {
-        "symfony/debug-bundle": "^3.3",
-        "symfony/dotenv": "^3.3",
-        "symfony/profiler-pack": "^1.0"
+        "symfony/debug-pack": "*",
+        "symfony/maker-bundle": "^1.0",
+        "symfony/profiler-pack": "*",
+        "symfony/test-pack": "*"
     },
     "config": {
         "preferred-install": {
@@ -40,10 +51,17 @@
             "App\\Tests\\": "tests/"
         }
     },
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
     "scripts": {
         "auto-scripts": {
-            "make cache-warmup": "script",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd",
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
@@ -55,14 +73,12 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*",
-        "symfony/twig-bundle": "<3.3",
-        "symfony/debug": "<3.3"
+        "symfony/symfony": "*"
     },
     "extra": {
         "symfony": {
-            "id": "01BP4BF07KNNT42E6C2CFMD690",
-            "allow-contrib": false
+            "allow-contrib": false,
+            "require": "5.0.*"
         }
     }
 }
