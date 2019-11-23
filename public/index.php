@@ -1,29 +1,26 @@
 <?php
 
 use App\Kernel;
-use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Debug\Debug;
 
-require __DIR__.'/../vendor/autoload.php';
+require dirname(__DIR__).'/config/bootstrap.php';
 
-// The check is to ensure we don't use .env in production
-if (!getenv('APP_ENV')) {
-    (new Dotenv())->load(__DIR__.'/../.env');
-}
-
-if (getenv('APP_DEBUG')) {
-    // WARNING: You should setup permissions the proper way!
-    // REMOVE the following PHP line and read
-    // https://symfony.com/doc/current/book/installation.html#checking-symfony-application-configuration-and-setup
+if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 
     Debug::enable();
 }
 
-// Request::setTrustedProxies(['0.0.0.0/0'], Request::HEADER_FORWARDED);
+if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
+    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
+}
 
-$kernel = new Kernel(getenv('APP_ENV'), getenv('APP_DEBUG'));
+if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
+    Request::setTrustedHosts([$trustedHosts]);
+}
+
+$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
