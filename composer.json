@@ -60,6 +60,9 @@
         "symfony/polyfill-php82": "*"
     },
     "scripts": {
+        "php-cs-fixer": "vendor/bin/php-cs-fixer fix --diff",
+        "lint": "@php-cs-fixer --dry-run",
+        "lint:fix": "@php-cs-fixer",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
