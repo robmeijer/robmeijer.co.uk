@@ -2,12 +2,11 @@ includes:
     - vendor/phpstan/phpstan-symfony/extension.neon
 
 parameters:
-    level: 6
+    level: 10
+    tmpDir: var/cache/phpstan
     symfony:
         consoleApplicationLoader: bin/console
     paths:
-        - bin/
         - config/
-        - public/
         - src/
         - tests/
