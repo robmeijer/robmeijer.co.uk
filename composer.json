@@ -7,16 +7,16 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/asset": "7.1.*",
-        "symfony/asset-mapper": "7.1.*",
-        "symfony/console": "7.1.*",
-        "symfony/dotenv": "7.1.*",
+        "symfony/asset": "7.2.*",
+        "symfony/asset-mapper": "7.2.*",
+        "symfony/console": "7.2.*",
+        "symfony/dotenv": "7.2.*",
         "symfony/flex": "^2",
-        "symfony/framework-bundle": "7.1.*",
+        "symfony/framework-bundle": "7.2.*",
         "symfony/monolog-bundle": "^3.10",
-        "symfony/runtime": "7.1.*",
-        "symfony/twig-bundle": "7.1.*",
-        "symfony/yaml": "7.1.*",
+        "symfony/runtime": "7.2.*",
+        "symfony/twig-bundle": "7.2.*",
+        "symfony/yaml": "7.2.*",
         "symfonycasts/sass-bundle": "^0.7.0",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
@@ -26,9 +26,9 @@
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-symfony": "^2.0",
         "roave/security-advisories": "dev-latest",
-        "symfony/debug-bundle": "7.1.*",
-        "symfony/stopwatch": "7.1.*",
-        "symfony/web-profiler-bundle": "7.1.*"
+        "symfony/debug-bundle": "7.2.*",
+        "symfony/stopwatch": "7.2.*",
+        "symfony/web-profiler-bundle": "7.2.*"
     },
     "config": {
         "allow-plugins": {
@@ -82,7 +82,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.1.*"
+            "require": "7.2.*"
         }
     }
 }
