@@ -1,0 +1,45 @@
+---
+on:
+    workflow_call:
+jobs:
+    lint:
+        name: 'Lint'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Check out code'
+              uses: actions/checkout@v4
+
+            - name: 'Cache Composer dependencies'
+              uses: actions/cache@v4
+              with:
+                  path: /tmp/composer-cache
+                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+            - name: 'Install dependencies'
+              uses: php-actions/composer@v6
+              with:
+                  working_dir: app/
+
+            - name: 'Run PHP-CS-Fixer'
+              run: PHP_CS_FIXER_IGNORE_ENV=1 composer lint --working-dir=app/
+
+    phpstan:
+        name: 'PHPStan'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Check out code'
+              uses: actions/checkout@v4
+
+            - name: 'Cache Composer dependencies'
+              uses: actions/cache@v4
+              with:
+                  path: /tmp/composer-cache
+                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+            - name: 'Install dependencies'
+              uses: php-actions/composer@v6
+              with:
+                  working_dir: app/
+
+            - name: 'Run PHPStan'
+              run: composer phpstan --working-dir=app/

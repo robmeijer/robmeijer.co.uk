@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Coming Soon' %}
+
+{% block body %}
+    <header class="header">
+        <div class="wrapper">
+            <a href="{{ path('app_home') }}" class="logo">robmeijer<span>.co.uk</span></a>
+        </div>
+    </header>
+    <main class="main wrapper">
+        <h1 class="title">Coming soon ...</h1>
+    </main>
+    <footer class="footer">
+        {% include 'partials/_footer.html.twig' only %}
+    </footer>
+{% endblock %}

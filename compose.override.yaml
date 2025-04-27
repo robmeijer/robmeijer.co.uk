@@ -1,0 +1,14 @@
+services:
+    app:
+        build:
+            args:
+                USER_ID: ${USER_ID:-1000}
+                GROUP_ID: ${GROUP_ID:-1000}
+        environment:
+            APP_ENV: dev
+            OPCACHE_VALIDATE_TIMESTAMPS: 1
+        extra_hosts:
+            - host.docker.internal:host-gateway
+        volumes:
+            - ./app:/var/www/html
+        tty: true

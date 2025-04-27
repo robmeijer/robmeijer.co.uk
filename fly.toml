@@ -1,0 +1,25 @@
+app = "robmeijer-co-uk"
+primary_region = "lhr"
+
+[build]
+build-target = "app"
+dockerfile = "docker/Dockerfile"
+
+[deploy]
+strategy = "rolling"
+
+[env]
+SERVER_NAME = ":80"
+
+[http_service]
+auto_start_machines = true
+auto_stop_machines = "suspend"
+force_https = true
+internal_port = 80
+min_machines_running = 0
+processes = ["app"]
+
+[[vm]]
+memory = "512mb"
+processes = ["app"]
+size = "shared-cpu-1x"

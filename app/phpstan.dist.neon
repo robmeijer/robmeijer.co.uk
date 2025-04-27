@@ -1,0 +1,14 @@
+includes:
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-symfony/rules.neon
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+
+parameters:
+    level: 10
+    tmpDir: var/phpstan
+    symfony:
+            consoleApplicationLoader: bin/console
+    paths:
+        - src/
+        - tests/

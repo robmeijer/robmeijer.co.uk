@@ -1,0 +1,26 @@
+.logo {
+    color: var(--clr-foreground);
+    font-weight: var(--fw-bold);
+    font-family: "Nokora", serif;
+    font-size: clamp(2rem, 11vw, 2.5rem);
+    letter-spacing: -0.07em;
+
+    span {
+        color: var(--clr-accent);
+        font-weight: var(--fw-light);
+        letter-spacing: initial;
+    }
+}
+
+.title {
+    color: var(--clr-heading);
+    font-family: "Nokora", serif;
+    font-weight: var(--fw-light);
+    font-size: 3rem;
+}
+
+.text {
+    max-width: 75ch;
+    margin-block-end: 1rem;
+    text-align: initial;
+}

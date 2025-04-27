@@ -1,0 +1,15 @@
+# ignored
+**/*
+
+# allowed
+!/app/assets/
+!/app/bin/
+!/app/config/
+!/app/public/
+!/app/src/
+!/app/templates/
+!/app/.env
+!/app/composer.*
+!/app/importmap.php
+!/app/symfony.lock
+!/docker/

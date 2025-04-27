@@ -1,0 +1,44 @@
+.navigation {
+    & ul {
+        display: flex;
+        gap: 1rem;
+
+        & a {
+            color: var(--clr-uno-3);
+            text-decoration-style: dashed;
+            text-decoration-thickness: 0.125em;
+            text-underline-offset: 0.35em;
+
+            &:hover, &:focus, &:focus-visible {
+                color: var(--clr-accent);
+                text-decoration-style: solid;
+            }
+        }
+
+        & li.active > a {
+            color: var(--clr-cta);
+            font-size: 1.4rem;
+            text-decoration-style: solid;
+            text-decoration-thickness: 0.25em;
+        }
+    }
+
+    &[data-type="footer"] ul {
+        & .social-icon {
+            fill: var(--clr-foreground);
+
+            &:hover, &:focus-visible {
+                fill: var(--clr-accent);
+            }
+        }
+    }
+}
+
+ul.navigation-list {
+    list-style: none;
+}
+
+.social-icon {
+    width: 1.5rem;
+    aspect-ratio: 1;
+}

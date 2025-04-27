@@ -1,0 +1,20 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 4fr auto;
+    min-height: 100svh;
+    color: var(--clr-foreground);
+    font-family: "Inter", serif;
+    font-size: 1.125rem;
+    font-weight: var(--fw-regular);
+    background: var(--clr-background);
+}
+
+a.logo {
+    text-decoration: none;
+    transition-duration: 300ms;
+    transition-property: color;
+
+    &:hover, &:focus, &:focus-visible {
+        color: var(--clr-accent);
+    }
+}

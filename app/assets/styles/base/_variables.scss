@@ -1,0 +1,38 @@
+:root {
+    --clr-neutral-1: hsl(0, 0%, 100%);
+    --clr-neutral-2: hsl(0, 0%, 0%);
+    --clr-primary-2: hsl(210, 10%, 23%);
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --clr-uno: 212;
+    --clr-duo: 160;
+
+    --clr-uno-6-hs: var(--clr-uno) 24%;
+    --clr-uno-1-hsl: var(--clr-uno) 99% 92%;
+
+    --clr-uno-1: hsl(var(--clr-uno-1-hsl));
+    --clr-uno-2: hsl(var(--clr-uno), 66%, 72%);
+    --clr-uno-3: hsl(var(--clr-uno), 44%, 56%);
+    --clr-uno-4: hsl(var(--clr-uno), 22%, 44%);
+    --clr-uno-5: hsl(var(--clr-uno), 11%, 30%);
+    --clr-uno-6: hsl(var(--clr-uno-6-hs) 15%);
+
+    --clr-duo-1: hsl(var(--clr-duo), 99%, 60%);
+    --clr-duo-2: hsl(var(--clr-duo), 55%, 44%);
+    --clr-duo-3: hsl(var(--clr-duo), 22%, 33%);
+    --clr-duo-4: hsl(var(--clr-duo), 100%, 23%);
+
+    --clr-foreground: var(--clr-uno-1);
+    --clr-background: var(--clr-uno-6);
+    --clr-heading: var(--clr-uno-2);
+    --clr-accent: var(--clr-duo-1);
+    //--clr-accent: hsl(var(--clr-duo), 100%, 66%);
+    //--clr-guide: lighten(hsl(var(--clr-uno), 24%, 15%), 10%);
+    //--clr-selection: lighten(hsl(var(--clr-uno), 24%, 15%), 12%);
+    //--clr-selection-gutter: lighten(hsl(var(--clr-uno), 24%, 15%), 3%);
+    //--clr-cursor-line: fade(lighten(hsl(var(--clr-uno), 24%, 15%), 12%), 26%);
+}

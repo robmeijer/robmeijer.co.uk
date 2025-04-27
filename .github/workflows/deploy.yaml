@@ -1,0 +1,19 @@
+---
+on:
+    workflow_call:
+jobs:
+    prod:
+        name: 'Production'
+        runs-on: ubuntu-latest
+        concurrency: deploy-group
+        environment: Production
+        steps:
+            - name: 'Check out code'
+              uses: actions/checkout@v4
+
+            - name: 'Set up FlyCTL'
+              uses: superfly/flyctl-actions/setup-flyctl@v1
+
+            - run: flyctl deploy --remote-only
+              env:
+                  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

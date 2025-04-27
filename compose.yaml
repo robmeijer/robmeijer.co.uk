@@ -1,0 +1,11 @@
+services:
+    app:
+        image: ${APP_NAME:-symfony}-app:local
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+            target: local
+        ports:
+            - "${APP_PORT:-80}:80"
+            - "443:443"
+            - "443:443/udp"
