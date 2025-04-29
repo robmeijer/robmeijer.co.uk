@@ -10,7 +10,6 @@ jobs:
         uses: ./.github/workflows/code-quality.yaml
     deploy:
         name: 'Deploy'
-        needs:
-            - code_quality
+        needs: [ code_quality ]
         uses: ./.github/workflows/deploy.yaml
         secrets: inherit
