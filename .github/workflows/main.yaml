@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
 jobs:
     code_quality:
-        name: 'Code quality'
+        name: 'Code Quality'
         uses: ./.github/workflows/code-quality.yaml
     deploy:
         name: 'Deploy'
