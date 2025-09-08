@@ -14,7 +14,7 @@ primary_region = 'lhr'
   strategy = 'rolling'
 
 [env]
-  SERVER_NAME = ':80'
+  SERVER_NAME = '0.0.0.0:80'
 
 [http_service]
   internal_port = 80
