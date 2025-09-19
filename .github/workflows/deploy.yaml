@@ -2,11 +2,27 @@
 on:
     workflow_call:
 jobs:
+    staging:
+        name: 'Staging'
+        runs-on: ubuntu-latest
+        concurrency: deploy-group-staging
+        environment: Staging
+        steps:
+            - name: 'Check out code'
+              uses: actions/checkout@v4
+
+            - name: 'Set up FlyCTL'
+              uses: superfly/flyctl-actions/setup-flyctl@v1
+
+            - name: 'Deploy'
+              run: echo "Deploying to Staging environment"
+
     production:
         name: 'Production'
         runs-on: ubuntu-latest
-        concurrency: deploy-group
+        concurrency: deploy-group-production
         environment: Production
+        needs: [ staging ]
         steps:
             - name: 'Check out code'
               uses: actions/checkout@v4
