@@ -23,8 +23,6 @@ jobs:
         concurrency: deploy-group-production
         environment: Production
         needs: [ staging ]
-        outputs:
-            image: ${{ steps.deploy.outputs.image }}
         steps:
             - name: 'Check out code'
               uses: actions/checkout@v4
@@ -34,17 +32,16 @@ jobs:
 
             - name: 'Deploy'
               id: deploy
-              run: flyctl deploy --buildkit
+              run: flyctl deploy --buildkit --image-label deployment-$GITHUB_SHA
               env:
                   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
     report:
         name: 'Report'
         runs-on: ubuntu-latest
-        concurrency: deploy-group-report
         needs: [ production ]
         steps:
             - env:
-                  IMAGE: ${{ needs.production.outputs.image }}
+                  IMAGE: "registry.fly.io/robmeijer-co-uk:deployment-$GITHUB_SHA"
               run: |
                   echo "Deployed image $IMAGE."
