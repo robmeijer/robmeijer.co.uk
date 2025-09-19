@@ -15,7 +15,9 @@ jobs:
               uses: superfly/flyctl-actions/setup-flyctl@v1
 
             - name: 'Deploy'
-              run: echo "Deploying to Staging environment"
+              run: flyctl deploy --buildkit --image-label deployment-$GITHUB_SHA
+              env:
+                  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
     production:
         name: 'Production'
@@ -31,17 +33,6 @@ jobs:
               uses: superfly/flyctl-actions/setup-flyctl@v1
 
             - name: 'Deploy'
-              id: deploy
-              run: flyctl deploy --buildkit --image-label deployment-$GITHUB_SHA
+              run: flyctl deploy --image registry.fly.io/robmeijer-co-uk:deployment-$GITHUB_SHA
               env:
                   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-
-    report:
-        name: 'Report'
-        runs-on: ubuntu-latest
-        needs: [ production ]
-        steps:
-            - env:
-                  IMAGE: "registry.fly.io/robmeijer-co-uk:deployment-$GITHUB_SHA"
-              run: |
-                  echo "Deployed image $IMAGE."
