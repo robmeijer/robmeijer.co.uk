@@ -37,3 +37,14 @@ jobs:
               run: flyctl deploy --buildkit
               env:
                   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+    report:
+        name: 'Report'
+        runs-on: ubuntu-latest
+        concurrency: deploy-group-report
+        needs: [ production ]
+        steps:
+            - env:
+                  IMAGE: ${{ needs.production.outputs.image }}
+              run: |
+                  echo "Deployed image $IMAGE."
