@@ -1,15 +1,16 @@
 ---
 name: 'Branch: main'
 on:
-    push:
-        branches: [ 'main' ]
-    workflow_dispatch:
+  push:
+    branches: [ 'main' ]
+  workflow_dispatch:
 jobs:
-    code_quality:
-        name: 'Code Quality'
-        uses: ./.github/workflows/code-quality.yaml
-    deploy:
-        name: 'Deploy'
-        needs: [ code_quality ]
-        uses: ./.github/workflows/deploy.yaml
-        secrets: inherit
+  code_quality:
+    name: 'Code Quality'
+    uses: ./.github/workflows/code-quality.yaml
+
+  deploy:
+    name: 'Deploy'
+    needs: [ code_quality ]
+    uses: ./.github/workflows/deploy.yaml
+    secrets: inherit

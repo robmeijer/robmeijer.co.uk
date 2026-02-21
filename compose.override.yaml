@@ -2,13 +2,9 @@ services:
     app:
         build:
             args:
-                USER_ID: ${USER_ID:-1000}
-                GROUP_ID: ${GROUP_ID:-1000}
-        environment:
-            APP_ENV: dev
-            OPCACHE_VALIDATE_TIMESTAMPS: 1
-        extra_hosts:
-            - host.docker.internal:host-gateway
-        volumes:
-            - ./app:/var/www/html
+                LOCAL_USER_ID: ${LOCAL_USER_ID:-1000}
+                LOCAL_GROUP_ID: ${LOCAL_GROUP_ID:-1000}
+                XDEBUG_MODE: ${XDEBUG_MODE:-off}
+        extra_hosts: [ host.docker.internal:host-gateway ]
+        volumes: [ "./app:/var/www/html" ]
         tty: true
