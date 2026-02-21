@@ -1,14 +1,14 @@
 # syntax=docker/dockerfile:1
-FROM ghcr.io/robmeijer/php:8.4-frankenphp AS app
+FROM ghcr.io/robmeijer/php:8.5-frankenphp AS app
 
 ARG USER_ID=33
 ARG GROUP_ID=33
 
-ENV APP_ENV=prod XDEBUG_MODE=off
+ENV APP_ENV="prod" XDEBUG_MODE="off"
 
 COPY --link --chown=${USER_ID}:${GROUP_ID} app/composer.* app/symfony.lock ./
 
-RUN composer install --ignore-platform-reqs --no-cache --no-dev --no-interaction --no-progress --no-scripts
+RUN composer install --no-autoloader --no-cache --no-dev --no-interaction --no-progress --no-scripts
 
 COPY --link --chown=${USER_ID}:${GROUP_ID} app ./
 
@@ -25,12 +25,20 @@ CMD [ "frankenphp", "run", "--config", "/etc/caddy/Caddyfile" ]
 
 FROM app AS local
 
+ARG LOCAL_USER_ID
+ARG LOCAL_GROUP_ID
+ARG XDEBUG_MODE
+
+ENV APP_ENV="dev" OPCACHE_VALIDATE_TIMESTAMPS="1" XDEBUG_MODE="${XDEBUG_MODE}"
+
 USER root
 
 RUN set -eux; \
-    install-php-extensions xdebug; \
+    if [ ${XDEBUG_MODE} != off ]; then \
+      install-php-extensions xdebug; \
+    fi; \
     ln -sf "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"; \
-    usermod -u ${USER_ID} www-data && groupmod -g ${GROUP_ID} www-data; \
+    usermod -u ${LOCAL_USER_ID} www-data && groupmod -g ${LOCAL_GROUP_ID} www-data; \
     chown -R www-data:www-data /data/caddy && chown -R www-data:www-data /config/caddy; \
     chown -R www-data:www-data /var/www;
 
